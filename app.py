@@ -1,7 +1,6 @@
 from flask import Flask,request,jsonify
 import sqlite3
 from flask_cors import CORS
-import pandas as pd
 import os
 from flask import render_template
 
