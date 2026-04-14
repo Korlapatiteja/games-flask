@@ -9,7 +9,7 @@ CORS(app)
 
 @app.route('/',methods=['GET'])
 def home():
-    return "API is working"
+    return render_template('page.html')
 
 @app.route('/games',methods=['GET'])
 def all():
