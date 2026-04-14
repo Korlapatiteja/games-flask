@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Play Store</title>
+</head>
+<body>
+    <p>Welcome to our play store!</p>
+    <div style="margin: 20px;">
+        <button onclick="loadallgames()">Load All Games</button>
+    </div>
+    <div style="margin: 40px;">
+        <button onclick="loadSimulation()">Simulation</button>
+        <button onclick="loadAdventure()">Adventure</button>
+        <button onclick="loadAction()">Action</button>
+        <button onclick="loadSports()">Sports</button>
+        <button onclick="loadRacing()">Racing</button>
+    </div>
+    <div id="games"></div>
+    <script>
+        function display(data){
+            document.getElementById('games').innerHTML = data.map(p=>
+                `<div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                <h3>${p[1]}</h3>
+                <p>Company: ${p[2]}</p>
+                <p>Category: ${p[3]}</p>
+                <p>Price: $${p[4]}</p>
+            </div>`
+            ).join('');
+        }
+        function loadallgames(){
+            fetch('http://127.0.0.1:5000/games')
+            .then(res => res.json())
+            .then(data => display(data));
+        }
+        function loadSimulation(){
+            fetch('http://127.0.0.1:5000/games/Simulation')
+            .then(res => res.json())
+            .then(data => display(data));
+        }
+        function loadAdventure(){
+            fetch('http://127.0.0.1:5000/games/Adventure')
+            .then(res => res.json())
+            .then(data => display(data));
+        }
+        function loadAction(){
+            fetch('http://127.0.0.1:5000/games/Action')
+            .then(res => res.json())
+            .then(data => display(data));
+        }
+        function loadSports(){
+            fetch('http://127.0.0.1:5000/games/Sports')
+            .then(res => res.json())
+            .then(data => display(data));
+        }
+        function loadRacing(){
+            fetch('http://127.0.0.1:5000/games/Racing')
+            .then(res => res.json())
+            .then(data => display(data));
+        }
+        
+    </script>
+
+</body>
+</html>
